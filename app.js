@@ -4,6 +4,7 @@ parentdiv.classList.add('parentElm');
 document.body.appendChild(parentdiv)
 
 function numberCreate(number) {
+  // ボタン雛形作成
   const calcBtn = document.createElement('div');
   calcBtn.classList.add('calcBtn');
   calcBtn.innerHTML = number;
