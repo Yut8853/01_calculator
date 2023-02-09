@@ -1,43 +1,75 @@
-const parentdiv = document.createElement('div');
-parentdiv.classList.add('parentElm');
+window.addEventListener('load', () => {
 
-document.body.appendChild(parentdiv)
+  const parentdiv = document.createElement('div');
 
-function numberCreate(number) {
-  // ボタン雛形作成
-  const calcBtn = document.createElement('div');
-  calcBtn.classList.add('calcBtn');
-  calcBtn.innerHTML = number;
-  calcBtn.style.width = '23%';
-  calcBtn.style.display = 'flex'
-  calcBtn.style.justifyContent = 'center'
-  calcBtn.style.alignItems = 'center'
-  calcBtn.style.background = '#000'
-  calcBtn.style.color = '#fff'
-  calcBtn.style.borderRadius = '15px'
+  document.body.appendChild(parentdiv);
+  // 親のラッパースタイル
+  parentdiv.style.width = '100%';
+  parentdiv.style.height = '100vh';
+  parentdiv.style.display = 'flex';
+  parentdiv.style.justifyContent = 'center';
+  parentdiv.style.alignItems = 'center'
+  parentdiv.style.flexWrap = 'wrap';
+  parentdiv.style.gap = '2%';
 
-  parentdiv.appendChild(calcBtn);
-}
+  // ボタン生成用の配列
+  const arry = [
+    ['1', '2', '3', '/'],
+    ['4', '5', '6', '*'],
+    ['7', '8', '9', '-'],
+    ['0', '.', '=', '+'],
+  ];
 
-numberCreate(1)
-numberCreate(2)
-numberCreate(3)
-numberCreate('/')
-numberCreate(4)
-numberCreate(5)
-numberCreate(6)
-numberCreate('*')
-numberCreate(7)
-numberCreate(8)
-numberCreate(9)
-numberCreate('-')
-numberCreate('0')
-numberCreate('.')
-numberCreate('=')
-numberCreate('+')
+  for (let i = 0; i < arry.length; i++) {
+    for (let j = 0; j < arry.length; j++) {
+      let calcBtn = document.createElement('div');
+      // 子のスタイル
+      calcBtn.style.width = '22%';
+      calcBtn.style.height = '10%';
+      calcBtn.style.display = 'flex';
+      calcBtn.style.justifyContent = 'center';
+      calcBtn.style.alignItems = 'center';
+      calcBtn.style.background = '#000';
+      calcBtn.style.color = '#fff';
+      calcBtn.style.borderRadius = '15px';
 
-parentdiv.style.width = '600px'
-parentdiv.style.height = '600px'
-parentdiv.style.display = 'flex'
-parentdiv.style.flexWrap = 'wrap'
-parentdiv.style.gap = '10px'
+      calcBtn.textContent = arry[i][j];
+
+      parentdiv.appendChild(calcBtn);
+
+      calcBtn.addEventListener('click', () => {
+        calcBtnValue = calcBtn.innerHTML;
+        result.value += calcBtnValue;
+
+        if (result.value) {
+          result.value
+        } else {
+          console.log('no')
+        }
+      });
+    }
+  }
+
+  // 計算結果とACボタン横並び
+  const resultWrapper = document.createElement('div');
+  resultWrapper.style.display = 'flex';
+  resultWrapper.style.justifyContent = 'center';
+  resultWrapper.style.alignItems = 'bottom';
+  parentdiv.appendChild(resultWrapper)
+
+  // 計算結果表示
+  let result = document.createElement('input')
+  result.style.width = '100%'
+  result.style.border = 0
+  result.style.borderBottom = 'solid'
+  resultWrapper.appendChild(result)
+
+  // ACボタン表示
+  const clearBtn = document.createElement('button')
+  clearBtn.style.width = '50px'
+  clearBtn.style.height = '50px'
+  clearBtn.innerHTML = 'AC'
+  resultWrapper.appendChild(clearBtn)
+
+});
+
