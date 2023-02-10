@@ -21,20 +21,33 @@ window.addEventListener('load', () => {
   ];
 
   for (let i = 0; i < arry.length; i++) {
-    for (let j = 0; j < arry.length; j++) {
-      let calcBtn = document.createElement('div');
+    const calcBtn = document.createElement('div');
+    // 子のスタイル
+    calcBtn.style.width = '22%';
+    calcBtn.style.height = '10%';
+    calcBtn.style.display = 'flex';
+    calcBtn.style.justifyContent = 'center';
+    calcBtn.style.alignItems = 'center';
+    calcBtn.style.background = '#000';
+    calcBtn.style.color = '#fff';
+    calcBtn.style.borderRadius = '15px';
+
+    calcBtn.textContent = arry[i][0];
+    parentdiv.appendChild(calcBtn);
+
+    for (let j = 1; j < arry.length; j++) {
+      const calcBtn = document.createElement('div');
       // 子のスタイル
       calcBtn.style.width = '22%';
       calcBtn.style.height = '10%';
       calcBtn.style.display = 'flex';
       calcBtn.style.justifyContent = 'center';
       calcBtn.style.alignItems = 'center';
-      calcBtn.style.background = '#000';
+      calcBtn.style.background = 'red';
       calcBtn.style.color = '#fff';
       calcBtn.style.borderRadius = '15px';
 
       calcBtn.textContent = arry[i][j];
-
       parentdiv.appendChild(calcBtn);
 
       calcBtn.addEventListener('click', () => {
