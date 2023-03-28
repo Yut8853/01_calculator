@@ -1,15 +1,14 @@
 window.addEventListener('load', () => {
 
   const parentdiv = document.createElement('div');
-
   document.body.appendChild(parentdiv);
   // 親のラッパースタイル
   parentdiv.style.width = '100%';
   parentdiv.style.height = '100vh';
   parentdiv.style.display = 'flex';
-  parentdiv.style.justifyContent = 'center';
-  parentdiv.style.alignItems = 'center'
   parentdiv.style.flexWrap = 'wrap';
+  parentdiv.style.justifyContent = 'center';
+  parentdiv.style.alignItems = 'center';
   parentdiv.style.gap = '2%';
 
   // ボタン生成用の配列
@@ -21,21 +20,7 @@ window.addEventListener('load', () => {
   ];
 
   for (let i = 0; i < arry.length; i++) {
-    const calcBtn = document.createElement('div');
-    // 子のスタイル
-    calcBtn.style.width = '22%';
-    calcBtn.style.height = '10%';
-    calcBtn.style.display = 'flex';
-    calcBtn.style.justifyContent = 'center';
-    calcBtn.style.alignItems = 'center';
-    calcBtn.style.background = '#000';
-    calcBtn.style.color = '#fff';
-    calcBtn.style.borderRadius = '15px';
-
-    calcBtn.textContent = arry[i][0];
-    parentdiv.appendChild(calcBtn);
-
-    for (let j = 1; j < arry.length; j++) {
+    for (let j = 0; j < arry[i].length; j++) {
       const calcBtn = document.createElement('div');
       // 子のスタイル
       calcBtn.style.width = '22%';
@@ -43,7 +28,7 @@ window.addEventListener('load', () => {
       calcBtn.style.display = 'flex';
       calcBtn.style.justifyContent = 'center';
       calcBtn.style.alignItems = 'center';
-      calcBtn.style.background = 'red';
+      calcBtn.style.background = '#000';
       calcBtn.style.color = '#fff';
       calcBtn.style.borderRadius = '15px';
 
@@ -85,4 +70,3 @@ window.addEventListener('load', () => {
   resultWrapper.appendChild(clearBtn)
 
 });
-
