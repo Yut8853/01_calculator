@@ -3,13 +3,27 @@ window.addEventListener('load', () => {
   const parentdiv = document.createElement('div');
   document.body.appendChild(parentdiv);
   // 親のラッパースタイル
-  parentdiv.style.width = '100%';
-  parentdiv.style.height = '80vh';
-  parentdiv.style.display = 'flex';
-  parentdiv.style.justifyContent = 'center';
-  parentdiv.style.alignItems = 'center';
-  parentdiv.style.flexDirection = 'column';
-  parentdiv.style.gap = '30px';
+  // parentdiv.style.width = '100%';
+  // parentdiv.style.height = '80vh';
+  // parentdiv.style.display = 'flex';
+  // parentdiv.style.justifyContent = 'center';
+  // parentdiv.style.alignItems = 'center';
+  // parentdiv.style.flexDirection = 'column';
+  // parentdiv.style.gap = '30px';
+
+  function setStyle(elm, style) {
+    Object.assign(elm.style, style);
+  }
+
+  setStyle(parentdiv, {
+    width: '100%',
+    height: '80vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    gap: '30px',
+  });
 
   // ボタン生成用の配列
   const arry = [
